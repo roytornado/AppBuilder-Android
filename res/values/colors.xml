@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="greyF3">#FFF3F3F3</color>
+    <color name="greyEE">#FFEEEEEE</color>
+    <color name="greyAA">#FFEEF0EB</color>
+    <color name="grey77">#FF777777</color>
+    <color name="grey44">#FF444444</color>
+    <color name="grey33">#FF333333</color>
+    <color name="tran_semi">#88FFFFFF</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_red_light">#ffff4444</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="holo_green_dark">#ff669900</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="holo_purple">#ffaa66cc</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_orange_dark">#ffff8800</color>
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="btn_blue_top">#FF007AC4</color>
+    <color name="btn_blue_down">#FF0B6CA6</color>
+    <color name="btn_red_top">#ffff4444</color>
+    <color name="btn_red_down">#ffcc0000</color>
+    <color name="btn_yellow_top">#FFE6E600</color>
+    <color name="btn_yellow_down">#FFB3B300</color>
+    <color name="btn_green_top">#FF88CC00</color>
+    <color name="btn_green_down">#FF669900</color>
+    <color name="btn_border">#FFBBBBBB</color>
+    <color name="bg_dark">#FF222222</color>
+    <color name="bg_light">#FFEEEEEE</color>
+</resources>

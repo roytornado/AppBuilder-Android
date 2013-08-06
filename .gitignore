@@ -43,6 +43,7 @@ tmp/**/*
 # Android Studio
 .idea/
 .gradle
+out/
 /*/local.properties
 /*/out
 /*/*/build

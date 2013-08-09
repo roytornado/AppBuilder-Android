@@ -78,15 +78,13 @@ public class BaseApp extends Application {
         String[] a1 = versionInSever.trim().split("\\.");
         int majorServer = Integer.parseInt(a1[0]);
         int minorServer = a1.length >= 2 ? Integer.parseInt(a1[1]) : 0;
-        int revServer = a1.length >= 3 ? Integer.parseInt(a1[2]) : 0;
 
         String versionDevice = getVersionName();
         String[] a2 = versionDevice.split("\\.");
         int majorDevice = Integer.parseInt(a2[0]);
         int minorDevice = a2.length >= 2 ? Integer.parseInt(a2[1]) : 0;
-        int revDevice = a2.length >= 3 ? Integer.parseInt(a2[2]) : 0;
 
-        if (majorServer > majorDevice && minorServer > minorDevice && revServer > revDevice) {
+        if (majorServer > majorDevice && minorServer > minorDevice) {
             return true;
         } else {
             return false;

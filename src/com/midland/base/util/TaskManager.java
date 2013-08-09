@@ -83,11 +83,11 @@ public class TaskManager {
         @Override
         final public void run() {
             try {
-                Common.d("Task start: " + id);
+                //Common.d("Task start: " + id);
                 doInBackground();
-                Common.d("Task end: " + id);
+                //Common.d("Task end: " + id);
             } catch (Exception e) {
-                Common.d("Thread Killed: " + id);
+                //Common.d("Thread Killed: " + id);
             } finally {
                 manager.taskEnded(id);
                 manager = null;

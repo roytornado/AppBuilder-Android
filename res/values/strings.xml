@@ -17,7 +17,7 @@
     <string name="error_server">服務器錯誤，請稍後再試。</string>
     <string name="version_m">這軟件有新版本，現在更新嗎？</string>
     <string name="version_c">這軟件必須更新才可繼續使用。</string>
-    <string name="pull_to_refresh_pull">下拉以更新</string>
+    <string name="pull_to_refresh_pull_from_start">下拉以更新</string>
     <string name="pull_to_refresh_release">放開以更新</string>
     <string name="pull_to_refresh_reload">重新載入中...</string>
 </resources>

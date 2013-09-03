@@ -5,8 +5,6 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import com.midland.base.util.Ran;
-
 public class HackyViewPager extends ViewPager {
 
     public HackyViewPager(Context context) {

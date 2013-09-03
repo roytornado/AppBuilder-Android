@@ -1,22 +1,21 @@
-
 package com.midland.base.xml;
-
-import java.util.Vector;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.util.Vector;
+
 public class BaseXMLHandler extends DefaultHandler {
-	private String itemvalue = "";
+    private String itemvalue = "";
     private Vector<String> nodeStack = new Vector<String>();
 
     public BaseXMLHandler() {
     }
-    
+
     public String getItemvalue() {
-		return itemvalue.trim();
-	}
+        return itemvalue.trim();
+    }
 
     @Override
     public void startDocument() throws SAXException {
@@ -28,8 +27,7 @@ public class BaseXMLHandler extends DefaultHandler {
     }
 
     @Override
-    public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
-            throws SAXException {
+    public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
         nodeStack.add(localName);
     }
 
@@ -91,8 +89,7 @@ public class BaseXMLHandler extends DefaultHandler {
     }
 
     public boolean isParent(String parentName) {
-        if (nodeStack.size() >= 2
-                && nodeStack.get(nodeStack.size() - 2).equalsIgnoreCase(parentName)) {
+        if (nodeStack.size() >= 2 && nodeStack.get(nodeStack.size() - 2).equalsIgnoreCase(parentName)) {
             return true;
         }
         return false;

@@ -9,35 +9,35 @@ import com.midland.base.R;
 import com.midland.base.util.Ran;
 
 public abstract class InfoTextBase extends InfoBase {
-	TextView info_text;
+    TextView info_text;
 
-	public InfoTextBase(LinearLayout main, int resId) {
-		super(main, resId);
-		info_text = (TextView) self.findViewById(R.id.info_text);
-		info_text.setId(Ran.ranInt());
-	}
+    public InfoTextBase(LinearLayout main, int resId) {
+        super(main, resId);
+        info_text = (TextView) self.findViewById(R.id.info_text);
+        info_text.setId(Ran.ranInt());
+    }
 
-	public void setText(String src) {
-		info_text.setText(src);
-	}
+    public void setText(String src) {
+        info_text.setText(src);
+    }
 
-	public String getText() {
-		return info_text.getText().toString();
-	}
+    public String getText() {
+        return info_text.getText().toString();
+    }
 
-	public void setIcon(int res) {
-		final Drawable icon = self.getResources().getDrawable(res);
-		icon.setBounds(0, 0, 30, 30);
-		info_text.setCompoundDrawables(null, null, icon, null);
-	}
+    public void setIcon(int res) {
+        final Drawable icon = self.getResources().getDrawable(res);
+        icon.setBounds(0, 0, 30, 30);
+        info_text.setCompoundDrawables(null, null, icon, null);
+    }
 
-	public void link() {
-		Linkify.addLinks(info_text, Linkify.EMAIL_ADDRESSES | Linkify.WEB_URLS);
-	}
+    public void link() {
+        Linkify.addLinks(info_text, Linkify.EMAIL_ADDRESSES | Linkify.WEB_URLS);
+    }
 
-	@Override
-	public String toString() {
-		return info_label.getText() + ": " + info_text.getText();
-	}
+    @Override
+    public String toString() {
+        return info_label.getText() + ": " + info_text.getText();
+    }
 
 }

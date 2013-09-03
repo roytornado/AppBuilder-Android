@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true"><inset android:insetBottom="2dp" android:insetLeft="2dp" android:insetRight="2dp" android:insetTop="2dp">
+    <item android:state_pressed="true">
+        <inset android:insetBottom="2dp" android:insetLeft="2dp" android:insetRight="2dp" android:insetTop="2dp">
             <shape>
-                <gradient android:angle="270" android:endColor="@color/btn_red_top" android:startColor="@color/btn_red_down" android:type="linear" />
-                <stroke android:width="1dp" android:color="@color/btn_border" />
-                <corners android:radius="3dp" />
-                <padding android:bottom="10dp" android:left="5dp" android:right="5dp" android:top="10dp" />
+                <gradient android:angle="270" android:endColor="@color/btn_red_top" android:startColor="@color/btn_red_down" android:type="linear"/>
+                <stroke android:width="1dp" android:color="@color/btn_border"/>
+                <corners android:radius="3dp"/>
+                <padding android:bottom="10dp" android:left="5dp" android:right="5dp" android:top="10dp"/>
             </shape>
-        </inset></item>
-    <item><inset android:insetBottom="2dp" android:insetLeft="2dp" android:insetRight="2dp" android:insetTop="2dp">
+        </inset>
+    </item>
+    <item>
+        <inset android:insetBottom="2dp" android:insetLeft="2dp" android:insetRight="2dp" android:insetTop="2dp">
             <shape>
-                <gradient android:angle="270" android:endColor="@color/btn_red_down" android:startColor="@color/btn_red_top" android:type="linear" />
-                <stroke android:width="1dp" android:color="@color/btn_border" />
-                <corners android:radius="3dp" />
-                <padding android:bottom="10dp" android:left="5dp" android:right="5dp" android:top="10dp" />
+                <gradient android:angle="270" android:endColor="@color/btn_red_down" android:startColor="@color/btn_red_top" android:type="linear"/>
+                <stroke android:width="1dp" android:color="@color/btn_border"/>
+                <corners android:radius="3dp"/>
+                <padding android:bottom="10dp" android:left="5dp" android:right="5dp" android:top="10dp"/>
             </shape>
-        </inset></item>
+        </inset>
+    </item>
 </selector>

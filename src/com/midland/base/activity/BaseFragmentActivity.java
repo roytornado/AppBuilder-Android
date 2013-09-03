@@ -18,102 +18,102 @@ import com.midland.base.util.network.multitask.MultiTaskManager;
 import com.midland.base.widget.AppToast;
 
 public abstract class BaseFragmentActivity extends FragmentActivity {
-	private AppToast toast;
-	private ProgressDialog loading;
-	protected ServerTaskManager stm;
-	protected MultiTaskManager mtm;
-	
-	protected Activity me() {
-		return this;
-	}
-	
-	protected void onCreate(Bundle savedInstanceState, int layoutRes) {
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		if (layoutRes > -1) {
-			setContentView(layoutRes);
-		}
-		toast = new AppToast(BaseApp.me);
-		stm = new ServerTaskManager();
-		Common.i(getClass().getSimpleName() + ": onCreate");
-	}
-	
-	@Override
-	protected void onDestroy() {
-		Common.i(getClass().getSimpleName() + ": onDestroy");
-		stm.free();
-		stm = null;
-		mtm = null;
-		toast = null;
-		hideLoading();
-		super.onDestroy();
-	}
-	
-	@Override
-	protected void onRestart() {
-		Common.i(getClass().getSimpleName() + ": onRestart");
-		super.onRestart();
-	}
-	
-	@Override
-	protected void onPause() {
-		Common.i(getClass().getSimpleName() + ": onPause");
-		hideKB();
-		super.onPause();
-	}
-	
-	@Override
-	protected void onResume() {
-		Common.i(getClass().getSimpleName() + ": onResume");
-		super.onResume();
-	}
-	
-	@Override
-	protected void onStart() {
-		Common.i(getClass().getSimpleName() + ": onStart");
-		super.onStart();
-	}
-	
-	@Override
-	protected void onStop() {
-		Common.i(getClass().getSimpleName() + ": onStop");
-		super.onStop();
-	}
-	
-	protected void showToast(int resId) {
-		toast.setText(resId);
-		toast.show();
-	}
-	
-	protected void showToast(String text) {
-		toast.setText(text);
-		toast.show();
-	}
-	
-	protected void showLoading() {
-		hideLoading();
-		loading = ProgressDialog.show(this, null, getString(R.string.loading), true, false);
-	}
-	
-	protected void hideLoading() {
-		if (loading != null && loading.isShowing()) {
-			loading.dismiss();
-		}
-		loading = null;
-	}
-	
-	protected void showMsg(int resId) {
-		Builder dialog = new AlertDialog.Builder(this);
-		dialog.setCancelable(true);
-		dialog.setMessage(resId);
-		dialog.show();
-	}
-	
-	protected void hideKB() {
-		if (this.getCurrentFocus() != null) {
-			InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-			inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-		}
-	}
-	
+    private AppToast toast;
+    private ProgressDialog loading;
+    protected ServerTaskManager stm;
+    protected MultiTaskManager mtm;
+
+    protected Activity me() {
+        return this;
+    }
+
+    protected void onCreate(Bundle savedInstanceState, int layoutRes) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (layoutRes > -1) {
+            setContentView(layoutRes);
+        }
+        toast = new AppToast(BaseApp.me);
+        stm = new ServerTaskManager();
+        Common.i(getClass().getSimpleName() + ": onCreate");
+    }
+
+    @Override
+    protected void onDestroy() {
+        Common.i(getClass().getSimpleName() + ": onDestroy");
+        stm.free();
+        stm = null;
+        mtm = null;
+        toast = null;
+        hideLoading();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        Common.i(getClass().getSimpleName() + ": onRestart");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        Common.i(getClass().getSimpleName() + ": onPause");
+        hideKB();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        Common.i(getClass().getSimpleName() + ": onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        Common.i(getClass().getSimpleName() + ": onStart");
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        Common.i(getClass().getSimpleName() + ": onStop");
+        super.onStop();
+    }
+
+    protected void showToast(int resId) {
+        toast.setText(resId);
+        toast.show();
+    }
+
+    protected void showToast(String text) {
+        toast.setText(text);
+        toast.show();
+    }
+
+    protected void showLoading() {
+        hideLoading();
+        loading = ProgressDialog.show(this, null, getString(R.string.loading), true, false);
+    }
+
+    protected void hideLoading() {
+        if (loading != null && loading.isShowing()) {
+            loading.dismiss();
+        }
+        loading = null;
+    }
+
+    protected void showMsg(int resId) {
+        Builder dialog = new AlertDialog.Builder(this);
+        dialog.setCancelable(true);
+        dialog.setMessage(resId);
+        dialog.show();
+    }
+
+    protected void hideKB() {
+        if (this.getCurrentFocus() != null) {
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
 }

@@ -70,7 +70,11 @@ public class ImageLoader {
     }
 
     public void loadImgOtherThread(final String url, final ImageView imageView, final ImgSizeType type) {
-        imageView.setImageResource(R.drawable.ic_image);
+        this.loadImgOtherThread(url, imageView, type, R.drawable.ic_image);
+    }
+
+    public void loadImgOtherThread(final String url, final ImageView imageView, final ImgSizeType type, int holderRes) {
+        imageView.setImageResource(holderRes);
         final ViewHandler handler = new ViewHandler(imageView);
         ThreadTask thread = new ThreadTask() {
             public void doInBackground() {

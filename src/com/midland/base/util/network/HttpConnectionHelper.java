@@ -24,6 +24,7 @@ import java.util.Map;
 public class HttpConnectionHelper {
     public String code;
     public String response;
+    public String urlNew;
 
     private void free() {
     }
@@ -42,10 +43,10 @@ public class HttpConnectionHelper {
     public void performRequest(String urlStr, Map<String, String> params, String method) {
         try {
             if (method.equals("GET")) {
-                urlStr = processParamsForGet(urlStr, params);
+                urlNew = processParamsForGet(urlStr, params);
             }
-            Common.d(method + " : " + urlStr);
-            URL url = new URL(urlStr);
+            Common.d(method + " : " + urlNew);
+            URL url = new URL(urlNew);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(method);
             conn.setDoInput(true);
@@ -82,7 +83,7 @@ public class HttpConnectionHelper {
             conn.disconnect();
         } catch (Exception e) {
             code = "900";
-            response = BaseApp.me.getString(R.string.error_network);
+            response = "Error";
         } finally {
             free();
         }

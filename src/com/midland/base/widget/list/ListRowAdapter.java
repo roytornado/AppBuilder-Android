@@ -11,12 +11,13 @@ import java.util.ArrayList;
 
 public class ListRowAdapter extends BaseAdapter {
     private ArrayList<ListRow> rows;
-    private ArrayList<String> typeList = new ArrayList<String>();
+    private ArrayList<String> typeList;
     private ListEvent event;
 
-    public ListRowAdapter(ListView list, ArrayList<ListRow> _rows, ListEvent _event) {
+    public ListRowAdapter(ListView list, ArrayList<ListRow> _rows, ListEvent _event, ArrayList<String> typeList) {
         rows = _rows;
         event = _event;
+        this.typeList = typeList;
         for (ListRow row : rows) {
             String rowId = row.getViewTypeName();
             if (!typeList.contains(rowId)) {

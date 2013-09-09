@@ -79,4 +79,19 @@ public class WidgetBuilder {
         alert_dialog.setNeutralButton(btn, btnListener);
         alert_dialog.show();
     }
+
+    public static void showPopupDialogWithCancel(Context c, String msg, String btn, final DialogInterface.OnClickListener btnListener) {
+        Builder alert_dialog = new AlertDialog.Builder(c);
+        alert_dialog.setTitle(c.getString(R.string.app_name));
+        alert_dialog.setCancelable(false);
+        alert_dialog.setMessage(msg);
+        alert_dialog.setPositiveButton(btn, btnListener);
+        alert_dialog.setNegativeButton(c.getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert_dialog.show();
+    }
 }

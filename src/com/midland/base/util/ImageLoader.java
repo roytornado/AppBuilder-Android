@@ -79,8 +79,10 @@ public class ImageLoader {
         ThreadTask thread = new ThreadTask() {
             public void doInBackground() {
                 Drawable drawable = fetchDrawable(url, type);
-                Message message = handler.obtainMessage(1, drawable);
-                handler.sendMessage(message);
+                if (drawable != null) {
+                    Message message = handler.obtainMessage(1, drawable);
+                    handler.sendMessage(message);
+                }
             }
         };
         thread.viewOwner = imageView.hashCode() + "";

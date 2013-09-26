@@ -45,6 +45,9 @@ public class HttpConnectionHelper {
             if (method.equals("GET")) {
                 urlNew = processParamsForGet(urlStr, params);
             }
+            if (method.equals("POST")) {
+                urlNew = urlStr;
+            }
             Common.d(method + " : " + urlNew);
             URL url = new URL(urlNew);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

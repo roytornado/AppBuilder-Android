@@ -50,6 +50,13 @@ public class WidgetBuilder {
         return view;
     }
 
+    public static Button btnGreen() {
+        Button view = new Button(BaseApp.me);
+        view.setBackgroundResource(R.drawable.btn_green);
+        view.setTextAppearance(BaseApp.me, R.style.btn_normal);
+        return view;
+    }
+
     public static Button btnRed() {
         Button view = new Button(BaseApp.me);
         view.setBackgroundResource(R.drawable.btn_red);

@@ -64,41 +64,55 @@ public class WidgetBuilder {
         return view;
     }
 
-    public static void showPopupDialog(Context c, String msg) {
-        Builder alert_dialog = new AlertDialog.Builder(c);
-        alert_dialog.setTitle(c.getString(R.string.app_name));
-        alert_dialog.setCancelable(false);
-        alert_dialog.setMessage(msg);
-        alert_dialog.setNegativeButton(c.getString(R.string.close), new DialogInterface.OnClickListener() {
+    public static AlertDialog showPopupDialog(Context c, String msg) {
+        Builder builder = new AlertDialog.Builder(c);
+        //builder.setTitle(c.getString(R.string.app_name));
+        builder.setCancelable(false);
+        builder.setMessage(msg);
+        builder.setNegativeButton(c.getString(R.string.close), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        alert_dialog.show();
+        AlertDialog dialog = builder.show();
+        return dialog;
     }
 
-    public static void showPopupDialog(Context c, String msg, String btn, final DialogInterface.OnClickListener btnListener) {
-        Builder alert_dialog = new AlertDialog.Builder(c);
-        alert_dialog.setTitle(c.getString(R.string.app_name));
-        alert_dialog.setCancelable(false);
-        alert_dialog.setMessage(msg);
-        alert_dialog.setNeutralButton(btn, btnListener);
-        alert_dialog.show();
+    public static AlertDialog showPopupDialog(Context c, String msg, String btn, final DialogInterface.OnClickListener btnListener) {
+        Builder builder = new AlertDialog.Builder(c);
+        //builder.setTitle(c.getString(R.string.app_name));
+        builder.setCancelable(false);
+        builder.setMessage(msg);
+        builder.setNeutralButton(btn, btnListener);
+        AlertDialog dialog = builder.show();
+        return dialog;
     }
 
-    public static void showPopupDialogWithCancel(Context c, String msg, String btn, final DialogInterface.OnClickListener btnListener) {
-        Builder alert_dialog = new AlertDialog.Builder(c);
-        alert_dialog.setTitle(c.getString(R.string.app_name));
-        alert_dialog.setCancelable(false);
-        alert_dialog.setMessage(msg);
-        alert_dialog.setPositiveButton(btn, btnListener);
-        alert_dialog.setNegativeButton(c.getString(R.string.cancel), new DialogInterface.OnClickListener() {
+    public static AlertDialog showPopupDialog(Context c, String msg, String btn1, final DialogInterface.OnClickListener btnListener1, String btn2, final DialogInterface.OnClickListener btnListener2) {
+        Builder builder = new AlertDialog.Builder(c);
+        //builder.setTitle(c.getString(R.string.app_name));
+        builder.setCancelable(false);
+        builder.setMessage(msg);
+        builder.setNeutralButton(btn1, btnListener1);
+        builder.setNeutralButton(btn2, btnListener2);
+        AlertDialog dialog = builder.show();
+        return dialog;
+    }
+
+    public static AlertDialog showPopupDialogWithCancel(Context c, String msg, String btn, final DialogInterface.OnClickListener btnListener) {
+        Builder builder = new AlertDialog.Builder(c);
+        //builder.setTitle(c.getString(R.string.app_name));
+        builder.setCancelable(false);
+        builder.setMessage(msg);
+        builder.setPositiveButton(btn, btnListener);
+        builder.setNegativeButton(c.getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        alert_dialog.show();
+        AlertDialog dialog = builder.show();
+        return dialog;
     }
 }

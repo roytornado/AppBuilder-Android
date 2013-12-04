@@ -52,8 +52,16 @@ public class ServerTaskManager {
         mThreads.remove(taskID);
     }
 
-    private void killAll() {
+    public void killAll() {
         mThreads.clear();
+    }
+
+    public boolean isTaskAlive(int taskID) {
+        if (mThreads.containsKey(taskID)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void onSuccess(int taskID, String content) {
@@ -80,17 +88,19 @@ public class ServerTaskManager {
             this.listener = listener;
             this.flag = flag;
             this.type = type;
+
+            if (this.params == null) {
+                this.params = new HashMap<String, String>();
+            }
         }
 
         @Override
         public void run() {
             try {
                 HTTPRequestHelper http_helper = new HTTPRequestHelper(listener);
-                if (listener.isLog) {
-                    Common.d("URL: " + host);
-                    for (String key : params.keySet()) {
-                        Common.d("Params: " + key + " | " + params.get(key));
-                    }
+                Common.d("URL: " + host);
+                for (String key : params.keySet()) {
+                    Common.d("Params: " + key + " | " + params.get(key));
                 }
                 if (type == POST_TYPE) {
                     http_helper.performPost(host, params);

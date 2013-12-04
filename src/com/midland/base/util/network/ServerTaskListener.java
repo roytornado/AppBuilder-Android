@@ -11,7 +11,6 @@ import com.midland.base.util.Common;
 public abstract class ServerTaskListener extends Handler {
     private ServerTaskManager manager;
     private int taskId;
-    public boolean isLog = true;
 
     public void setManager(ServerTaskManager manager, int taskId) {
         this.manager = manager;
@@ -39,15 +38,20 @@ public abstract class ServerTaskListener extends Handler {
             } else if (result.equals("fail")) {
                 onError(result, "900", BaseApp.me.getString(R.string.error_server));
             } else {
-                if (manager != null) {
+                if (manager.isTaskAlive(taskId)) {
                     manager.onSuccess(taskId, result);
-                    manager = null;
+                    onSuccess(result);
+                } else {
+                    Common.i("Task killed: " + taskId);
                 }
-                onSuccess(result);
             }
         } catch (Exception e) {
-            onError("", "900", BaseApp.me.getString(R.string.error_server));
-            Common.e(e);
+            if (manager.isTaskAlive(taskId)) {
+                onError("", "900", BaseApp.me.getString(R.string.error_server));
+                Common.e(e);
+            } else {
+                Common.i("Task killed: " + taskId);
+            }
         } finally {
             manager = null;
         }

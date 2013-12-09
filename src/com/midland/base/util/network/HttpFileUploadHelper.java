@@ -20,6 +20,10 @@ public class HttpFileUploadHelper {
     final String BOUNDARY = "==================================";
     final String HYPHENS = "--";
     final String CRLF = "\r\n";
+
+    public String file_para = "photo";
+    public String file_name = "photo.jpg";
+    public String file_type = "image/jpeg";
     private Handler handler;
 
     private void free() {
@@ -60,8 +64,8 @@ public class HttpFileUploadHelper {
             if (fileUri != null) {
                 FileInputStream fileInputStream = new FileInputStream(new File(fileUri.getPath()));
                 dataOS.writeBytes(HYPHENS + BOUNDARY + HYPHENS);
-                dataOS.writeBytes("Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"" + CRLF);
-                dataOS.writeBytes("Content-Type: image/jpeg" + CRLF);
+                dataOS.writeBytes("Content-Disposition: form-data; name=\"" + file_para + "\"; filename=\"" + file_name + "\"" + CRLF);
+                dataOS.writeBytes("Content-Type: " + file_type + CRLF);
                 dataOS.writeBytes(CRLF);
 
                 int iBytesAvailable = fileInputStream.available();

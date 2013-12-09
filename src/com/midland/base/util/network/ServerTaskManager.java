@@ -110,6 +110,15 @@ public class ServerTaskManager {
                 }
                 if (type == UPLOAD_TYPE) {
                     HttpFileUploadHelper uploadHelper = new HttpFileUploadHelper(listener);
+                    if(params.containsKey("file_param")){
+                        uploadHelper.file_para = params.get("file_param");
+                    }
+                    if(params.containsKey("file_name")){
+                        uploadHelper.file_name = params.get("file_name");
+                    }
+                    if(params.containsKey("file_type")){
+                        uploadHelper.file_type = params.get("file_type");
+                    }
                     uploadHelper.performUpload(host, params, photo);
                 }
             } catch (Exception e) {

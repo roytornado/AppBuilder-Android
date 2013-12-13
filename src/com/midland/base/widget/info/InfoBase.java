@@ -12,8 +12,8 @@ import com.midland.base.app.BaseApp;
 import com.midland.base.util.Ran;
 
 public abstract class InfoBase {
-    View self;
-    TextView info_label;
+    protected View self;
+    protected TextView info_label;
 
     public InfoBase(LinearLayout main, int resId) {
         LayoutInflater li = (LayoutInflater) main.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -39,5 +39,7 @@ public abstract class InfoBase {
     public void setVisibility(int flag) {
         self.setVisibility(flag);
     }
+
+
 
 }

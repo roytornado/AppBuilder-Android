@@ -53,8 +53,6 @@ public abstract class ServerTaskListener extends Handler {
             } else {
                 Common.i("Task killed: " + taskId);
             }
-        } finally {
-            manager = null;
         }
     }
 

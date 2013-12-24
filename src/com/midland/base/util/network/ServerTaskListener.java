@@ -30,7 +30,7 @@ public abstract class ServerTaskListener extends Handler {
             String result = bundle.getString("RESPONSE");
             String code = bundle.getString("CODE");
             int codeInt = Integer.parseInt(code);
-            if (codeInt < 200 && codeInt >= 300) {
+            if (codeInt < 200 || codeInt >= 300) {
                 onError("", "901", BaseApp.me.getString(R.string.error_network));
             } else if (result.equals("timeout")) {
                 onError(result, "901", BaseApp.me.getString(R.string.error_network));

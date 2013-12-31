@@ -94,6 +94,11 @@ public abstract class BaseActivity extends Activity {
         loading = ProgressDialog.show(this, null, getString(R.string.loading), true, false);
     }
 
+    protected void showLoading(String text) {
+        hideLoading();
+        loading = ProgressDialog.show(this, null, text, true, false);
+    }
+
     protected void hideLoading() {
         if (loading != null && loading.isShowing()) {
             loading.dismiss();

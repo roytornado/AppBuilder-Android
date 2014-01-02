@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
+import com.midland.base.util.Common;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -44,7 +46,9 @@ public class HttpFileUploadHelper {
             conn.setDoOutput(true);
             conn.setDoInput(true);
             conn.setUseCaches(false);
-            conn.setChunkedStreamingMode(262144);
+            conn.setConnectTimeout(30000);
+            conn.setReadTimeout(300000);
+            conn.setChunkedStreamingMode(12288);
             conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
             DataOutputStream dataOS = new DataOutputStream(conn.getOutputStream());
             dataOS.writeBytes(HYPHENS + BOUNDARY + CRLF);
@@ -68,14 +72,20 @@ public class HttpFileUploadHelper {
                 dataOS.writeBytes("Content-Type: " + file_type + CRLF);
                 dataOS.writeBytes(CRLF);
 
-                int iBytesAvailable = fileInputStream.available();
-                byte[] byteData = new byte[iBytesAvailable];
-                int iBytesRead = fileInputStream.read(byteData, 0, iBytesAvailable);
+             //   int iBytesAvailable = fileInputStream.available();
+              //  byte[] byteData = new byte[iBytesAvailable];
+                int count;
+                byte buffer[] = new byte[1024];
+                while ((count = fileInputStream.read(buffer)) > 0)
+                {
+                    dataOS.write(buffer, 0, count);
+                }
+               /* int iBytesRead = fileInputStream.read(byteData, 0, iBytesAvailable);
                 while (iBytesRead > 0) {
                     dataOS.write(byteData, 0, iBytesAvailable);
                     iBytesAvailable = fileInputStream.available();
                     iBytesRead = fileInputStream.read(byteData, 0, iBytesAvailable);
-                }
+                }*/
                 dataOS.writeBytes(CRLF);
                 dataOS.writeBytes(HYPHENS + BOUNDARY + HYPHENS + CRLF);
                 fileInputStream.close();
@@ -96,7 +106,8 @@ public class HttpFileUploadHelper {
 
             String response = stringBuilder.toString();
             String code = conn.getResponseCode() + "";
-
+            Common.d("CODE: "+code);
+            Common.d("RESPONSE: "+response);
             responseStream.close();
             conn.disconnect();
             bundle.putString("CODE", code);
@@ -104,6 +115,7 @@ public class HttpFileUploadHelper {
             message.setData(bundle);
             handler.sendMessage(message);
         } catch (Exception e) {
+            Common.e(e);
             bundle.putString("CODE", "500");
             bundle.putString("RESPONSE", "Network Error");
             message.setData(bundle);

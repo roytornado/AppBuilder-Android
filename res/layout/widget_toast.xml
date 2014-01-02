@@ -4,7 +4,8 @@
               android:layout_height="fill_parent"
               android:background="@drawable/bg_toast"
               android:orientation="horizontal"
-              android:padding="10dp">
+              android:padding="10dp"
+              android:baselineAligned="false">
 
     <TextView
             android:id="@+id/text"

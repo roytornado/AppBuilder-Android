@@ -44,8 +44,8 @@ public class HttpFileUploadHelper {
             conn.setDoOutput(true);
             conn.setDoInput(true);
             conn.setUseCaches(false);
+            conn.setChunkedStreamingMode(262144);
             conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
-
             DataOutputStream dataOS = new DataOutputStream(conn.getOutputStream());
             dataOS.writeBytes(HYPHENS + BOUNDARY + CRLF);
             // ******************************************** HANDLE PARAMS

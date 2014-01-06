@@ -46,9 +46,10 @@ public class HttpFileUploadHelper {
             conn.setDoOutput(true);
             conn.setDoInput(true);
             conn.setUseCaches(false);
-            conn.setConnectTimeout(30000);
+            conn.setConnectTimeout(300000);
             conn.setReadTimeout(300000);
-            conn.setChunkedStreamingMode(12288);
+            conn.setChunkedStreamingMode(262144);
+            conn.setRequestProperty("Connection","Keep-Alive");
             conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
             DataOutputStream dataOS = new DataOutputStream(conn.getOutputStream());
             dataOS.writeBytes(HYPHENS + BOUNDARY + CRLF);

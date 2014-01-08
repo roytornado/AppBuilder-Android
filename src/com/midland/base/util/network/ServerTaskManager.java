@@ -119,7 +119,7 @@ public class ServerTaskManager {
                     if(params.containsKey("file_type")){
                         uploadHelper.file_type = params.get("file_type");
                     }
-                    uploadHelper.performUpload(host, params, photo);
+                    uploadHelper.performUpload2(host, params, photo);
                 }
             } catch (Exception e) {
                 Common.e(e);

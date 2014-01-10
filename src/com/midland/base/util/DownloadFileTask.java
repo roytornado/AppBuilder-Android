@@ -14,8 +14,8 @@ public abstract class DownloadFileTask extends AsyncTask<String, Integer, String
 
     protected void download(String urlPath, String filePath) throws Exception {
         Common.d("DownloadFileTask Starts");
-        filePath = filePath +".tmp";
-        File checkFile = new File(filePath);
+        String tmpFilePath = filePath +".tmp";
+        File checkFile = new File(tmpFilePath);
         if(checkFile.exists()){
             checkFile.delete();
         }
@@ -24,7 +24,7 @@ public abstract class DownloadFileTask extends AsyncTask<String, Integer, String
         connection.connect();
         int fileLength = connection.getContentLength();
         InputStream input = new BufferedInputStream(url.openStream());
-        OutputStream output = new FileOutputStream(filePath);
+        OutputStream output = new FileOutputStream(tmpFilePath);
 
         byte data[] = new byte[1024];
         long total = 0;
@@ -38,11 +38,10 @@ public abstract class DownloadFileTask extends AsyncTask<String, Integer, String
         output.flush();
         output.close();
         input.close();
-        File file = new File(filePath);
-        if(fileLength == file.length()){
-            file.renameTo( new File(filePath.substring(0,filePath.length()-4)));
+        if(fileLength == checkFile.length()){
+            checkFile.renameTo( new File(filePath));
         }else{
-            file.delete();
+            checkFile.delete();
         }
         Common.d("DownloadFileTask Finish");
     }

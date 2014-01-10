@@ -79,6 +79,22 @@ public class WidgetBuilder {
         return dialog;
     }
 
+    public static AlertDialog showPopupDialog(Context c, String title, String msg) {
+        Builder builder = new AlertDialog.Builder(c);
+        //builder.setTitle(c.getString(R.string.app_name));
+        builder.setCancelable(false);
+        builder.setTitle(title);
+        builder.setMessage(msg);
+        builder.setNegativeButton(c.getString(R.string.close), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.show();
+        return dialog;
+    }
+
     public static AlertDialog showPopupDialog(Context c, String msg, String btn, final DialogInterface.OnClickListener btnListener) {
         Builder builder = new AlertDialog.Builder(c);
         //builder.setTitle(c.getString(R.string.app_name));

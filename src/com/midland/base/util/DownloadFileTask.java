@@ -3,6 +3,7 @@ package com.midland.base.util;
 import android.os.AsyncTask;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -12,6 +13,12 @@ import java.net.URLConnection;
 public abstract class DownloadFileTask extends AsyncTask<String, Integer, String> {
 
     protected void download(String urlPath, String filePath) throws Exception {
+        Common.d("DownloadFileTask Starts");
+        filePath = filePath +".tmp";
+        File checkFile = new File(filePath);
+        if(checkFile.exists()){
+            checkFile.delete();
+        }
         URL url = new URL(urlPath);
         URLConnection connection = url.openConnection();
         connection.connect();
@@ -31,5 +38,12 @@ public abstract class DownloadFileTask extends AsyncTask<String, Integer, String
         output.flush();
         output.close();
         input.close();
+        File file = new File(filePath);
+        if(fileLength == file.length()){
+            file.renameTo( new File(filePath.substring(0,filePath.length()-4)));
+        }else{
+            file.delete();
+        }
+        Common.d("DownloadFileTask Finish");
     }
 }

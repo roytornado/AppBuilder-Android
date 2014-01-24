@@ -32,4 +32,5 @@
     <color name="bg_dark">#FF222222</color>
     <color name="bg_light">#FFEEEEEE</color>
     <color name="midland_main">#FF1EACC2</color>
+    <color name="charcoal">#333333</color>
 </resources>

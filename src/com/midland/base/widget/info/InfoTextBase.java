@@ -9,7 +9,7 @@ import com.midland.base.R;
 import com.midland.base.util.Ran;
 
 public abstract class InfoTextBase extends InfoBase {
-    TextView info_text;
+    public TextView info_text;
 
     public InfoTextBase(LinearLayout main, int resId) {
         super(main, resId);

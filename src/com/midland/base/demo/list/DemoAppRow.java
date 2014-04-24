@@ -20,7 +20,6 @@ public class DemoAppRow implements ListRow {
 
     public DemoAppModel target;
     private ListEvent event;
-    private ViewHolder holder;
 
     public DemoAppRow(DemoAppModel target, ListEvent event) {
         this.target = target;

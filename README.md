@@ -5,4 +5,4 @@
 * [jar] gson-2.2.4
 * [jar] httpmine-4.1.2
 * [sdk-lib] google-play-service
-* [sdk-jar] android-support-v4
+* [sdk-lib] android-support-v7

@@ -2,8 +2,8 @@ package com.midland.base.demo.list;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.midland.base.R;
 import com.midland.base.activity.BaseActivity;
 import com.midland.base.widget.list.ListEvent;
@@ -13,18 +13,18 @@ import com.midland.base.widget.list.ListRowAdapter;
 import java.util.ArrayList;
 
 public class MultiTypeListDemo extends BaseActivity {
-    PullToRefreshListView listView;
+    ListView listView;
     ArrayList<ListRow> rows = new ArrayList<ListRow>();
     ListRowAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.demo_activity_list);
-        listView = (PullToRefreshListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.list);
         ArrayList<String> rowTypeList = new ArrayList<String>();
         rowTypeList.add("DemoSectionHeader");
         rowTypeList.add("DemoAppRow");
-        listAdapter = new ListRowAdapter(listView.getRefreshableView(), rows, event, rowTypeList);
+        listAdapter = new ListRowAdapter(listView, rows, event, rowTypeList);
         listView.setAdapter(listAdapter);
     }
 

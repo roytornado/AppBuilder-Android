@@ -1,5 +1,6 @@
 package com.midland.base.util;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.midland.base.app.BaseApp;
@@ -36,6 +37,10 @@ public class Common {
         if (isDebug) {
             Log.e(BaseApp.APP_NAME, "Exception!!", e);
         }
+    }
+
+    public final static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
     public static String urlToFilename(String url) {

@@ -113,6 +113,14 @@ public class BaseApp extends Application {
         return px;
     }
 
+    public static int screenWidth() {
+        return me.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    public static int screenHeight() {
+        return me.getResources().getDisplayMetrics().heightPixels;
+    }
+
     public static int longSide() {
         int w = me.getResources().getDisplayMetrics().widthPixels;
         int h = me.getResources().getDisplayMetrics().heightPixels;

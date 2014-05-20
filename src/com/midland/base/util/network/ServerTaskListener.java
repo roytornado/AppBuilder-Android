@@ -9,8 +9,8 @@ import com.midland.base.app.BaseApp;
 import com.midland.base.util.Common;
 
 public abstract class ServerTaskListener extends Handler {
-    private ServerTaskManager manager;
-    private int taskId;
+    protected ServerTaskManager manager;
+    protected int taskId;
 
     public void setManager(ServerTaskManager manager, int taskId) {
         this.manager = manager;

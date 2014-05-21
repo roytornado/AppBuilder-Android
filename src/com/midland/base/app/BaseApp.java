@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 
 import com.midland.base.util.Common;
 import com.midland.base.util.Ran;
@@ -71,6 +72,16 @@ public class BaseApp extends Application {
             return pInfo.versionCode + "";
         } catch (NameNotFoundException e) {
             return "1";
+        }
+    }
+
+    public String getDeviceName() {
+        String manufacturer = Build.MANUFACTURER;
+        String model = Build.MODEL;
+        if (model.startsWith(manufacturer)) {
+            return model;
+        } else {
+            return manufacturer + " " + model;
         }
     }
 

@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 
 public class WidgetBuilder {

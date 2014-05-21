@@ -1,6 +1,6 @@
 package com.royalnext.base.util.network;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.util.Common;
 
 import org.apache.http.NameValuePair;

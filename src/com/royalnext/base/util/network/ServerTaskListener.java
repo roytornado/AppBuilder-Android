@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.Common;
 

@@ -5,7 +5,7 @@ import android.text.util.Linkify;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.util.Ran;
 
 public abstract class InfoTextBase extends InfoBase {

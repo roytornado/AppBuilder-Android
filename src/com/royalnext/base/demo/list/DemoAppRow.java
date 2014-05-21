@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.widget.list.ListEvent;
 import com.royalnext.base.widget.list.ListRow;

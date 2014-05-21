@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.activity.BaseActivity;
 import com.royalnext.base.widget.list.ListEvent;
 import com.royalnext.base.widget.list.ListRow;

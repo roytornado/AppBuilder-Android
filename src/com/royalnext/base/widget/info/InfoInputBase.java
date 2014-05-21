@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.util.DateTime;
 import com.royalnext.base.util.Ran;
 

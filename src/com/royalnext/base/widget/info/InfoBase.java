@@ -7,7 +7,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.Ran;
 

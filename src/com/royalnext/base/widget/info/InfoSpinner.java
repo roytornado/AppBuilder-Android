@@ -5,7 +5,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.util.Ran;
 
 public class InfoSpinner extends InfoBase {

@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 
 @SuppressWarnings("UnusedDeclaration")
 public class RoundedImageView extends ImageView {

@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.Common;
 import com.royalnext.base.util.network.ServerTaskManager;

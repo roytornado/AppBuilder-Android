@@ -4,7 +4,7 @@ import android.text.method.KeyListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.util.Ran;
 
 public class InfoInputH extends InfoInputBase {

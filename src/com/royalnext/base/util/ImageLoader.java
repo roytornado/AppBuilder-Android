@@ -10,7 +10,7 @@ import android.os.Message;
 import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.TaskManager.ThreadTask;
 

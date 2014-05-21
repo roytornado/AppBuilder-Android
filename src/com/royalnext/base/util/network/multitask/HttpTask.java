@@ -1,6 +1,6 @@
 package com.royalnext.base.util.network.multitask;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.network.HttpConnectionHelper;
 

@@ -2,7 +2,7 @@ package com.royalnext.base.demo;
 
 import android.widget.ImageView;
 
-import com.midland.base.R;
+import com.royalnext.base.R;
 import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.ImageLoader;
 import com.royalnext.base.util.network.ServerTaskListener;

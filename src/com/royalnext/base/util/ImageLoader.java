@@ -74,8 +74,31 @@ public class ImageLoader {
     }
 
     public void loadImgOtherThread(final String url, final ImageView imageView, final ImgSizeType type, int holderRes) {
+        if (imageView.getTag() != null && ((String) imageView.getTag()).equals(url)) {
+            return;
+        }
+        imageView.setTag(url);
         imageView.setImageResource(holderRes);
         final ViewHandler handler = new ViewHandler(imageView);
+        ThreadTask thread = new ThreadTask() {
+            public void doInBackground() {
+                Drawable drawable = fetchDrawable(url, type);
+                if (drawable != null) {
+                    Message message = handler.obtainMessage(1, drawable);
+                    handler.sendMessage(message);
+                }
+            }
+        };
+        thread.viewOwner = imageView.hashCode() + "";
+        taskManager.cleanTaskByViewOwner(imageView.hashCode() + "");
+        taskManager.addTask(thread);
+    }
+
+    public void loadImgOtherThread(final String url, final ImageView imageView, final ImgSizeType type, final Handler handler) {
+        if (imageView.getTag() != null && ((String) imageView.getTag()).equals(url)) {
+            return;
+        }
+        imageView.setTag(url);
         ThreadTask thread = new ThreadTask() {
             public void doInBackground() {
                 Drawable drawable = fetchDrawable(url, type);
@@ -186,8 +209,9 @@ public class ImageLoader {
     private static void downloadImageToSD(String urlPath, String key) {
         try {
             File dir = new File(BaseApp.me.getCacheDir(), BaseApp.IMAGE_FOLDER_NAME);
-            if (!dir.exists())
+            if (!dir.exists()) {
                 dir.mkdirs();
+            }
             String fileFullPath = dir + File.separator + key + "_" + Common.urlToFilename(urlPath);
             download(urlPath, fileFullPath);
             Common.d("[IMG] Download: " + fileFullPath + ":" + urlPath + ":" + key);

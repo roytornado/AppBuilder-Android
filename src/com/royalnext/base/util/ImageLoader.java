@@ -99,6 +99,7 @@ public class ImageLoader {
             return;
         }
         imageView.setTag(url);
+        imageView.setImageDrawable(null);
         ThreadTask thread = new ThreadTask() {
             public void doInBackground() {
                 Drawable drawable = fetchDrawable(url, type);

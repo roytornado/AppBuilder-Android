@@ -142,7 +142,7 @@ public class HTTPRequestHelper {
             }
         } else if (requestType == HTTPRequestHelper.GET_TYPE) {
             String newUrl = processParamsForGet(url, params);
-            Common.d("New URL:" + newUrl);
+            Common.i("Get URL:" + newUrl);
             HttpGet method = new HttpGet(newUrl);
             if (handler != null) {
                 execute(client, method);

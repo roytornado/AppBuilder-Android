@@ -22,7 +22,7 @@ public class ImageTools {
         BitmapFactory.Options o = null;
         InputStream stream = null;
         try {
-            Common.d("uri path: " + uri.getPath());
+            //Common.d("uri path: " + uri.getPath());
             o = new BitmapFactory.Options();
             o.inJustDecodeBounds = true;
             stream = BaseApp.me.getContentResolver().openInputStream(uri);

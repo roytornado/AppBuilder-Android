@@ -196,7 +196,7 @@ public class ImageLoader {
                 }
                 Uri uri = Uri.fromFile(targetFile);
                 Bitmap bitmap = ImageTools.getImageFromUri(uri, size);
-                Common.d("getImageFromSD: " + bitmap.getWidth() + ":" + bitmap.getHeight() + ":" + size + ":" + urlPath);
+                //Common.d("getImageFromSD: " + bitmap.getWidth() + ":" + bitmap.getHeight() + ":" + size + ":" + urlPath);
                 return bitmap;
             } else {
                 return null;

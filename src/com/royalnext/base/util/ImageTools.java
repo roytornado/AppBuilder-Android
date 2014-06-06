@@ -99,8 +99,9 @@ public class ImageTools {
 
     public static Uri saveToFile(Bitmap bitmap, File dir, String fileName, int quality) {
         try {
-            if (!dir.exists())
+            if (!dir.exists()) {
                 dir.mkdirs();
+            }
             File targetFile = new File(dir, fileName + ".jpg");
             FileOutputStream out = new FileOutputStream(targetFile);
             bitmap.compress(Bitmap.CompressFormat.JPEG, quality, out);
@@ -160,19 +161,31 @@ public class ImageTools {
     }
 
     public static Drawable getDrawable(int res, int size) {
-        Bitmap BitmapOrg = BitmapFactory.decodeResource(BaseApp.me.getResources(), res);
-        int width = BitmapOrg.getWidth();
-        int height = BitmapOrg.getHeight();
+        Bitmap bitmapOrg = BitmapFactory.decodeResource(BaseApp.me.getResources(), res);
+        int width = bitmapOrg.getWidth();
+        int height = bitmapOrg.getHeight();
 
         int longSide = width > height ? width : height;
         float ratio = (float) longSide / (float) size;
         Bitmap bResize = null;
         if (longSide > size) {
-            bResize = Bitmap.createScaledBitmap(BitmapOrg, (int) (BitmapOrg.getWidth() / ratio), (int) (BitmapOrg.getHeight() / ratio), true);
+            bResize = Bitmap.createScaledBitmap(bitmapOrg, (int) (bitmapOrg.getWidth() / ratio), (int) (bitmapOrg.getHeight() / ratio), true);
         } else {
-            bResize = Bitmap.createBitmap(BitmapOrg);
+            bResize = Bitmap.createBitmap(bitmapOrg);
         }
         return new BitmapDrawable(bResize);
+    }
+
+    public static Drawable getDrawableWithBounds(int res, int size) {
+        Drawable drawableOrg = BaseApp.me.getResources().getDrawable(res);
+        int width = drawableOrg.getIntrinsicWidth();
+        int height = drawableOrg.getIntrinsicHeight();
+
+        int longSide = width > height ? width : height;
+        float ratio = (float) longSide / (float) size;
+        drawableOrg.setBounds(0, 0, (int) (width / ratio), (int) (height / ratio));
+        Common.i("getDrawableWithBounds: " + drawableOrg.getBounds().width() + ":" + drawableOrg.getBounds().height());
+        return drawableOrg;
     }
 
     public static Bitmap rotateLeft(Bitmap bitmap) {

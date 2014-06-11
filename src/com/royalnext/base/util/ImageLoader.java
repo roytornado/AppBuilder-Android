@@ -51,6 +51,19 @@ public class ImageLoader {
         return size;
     }
 
+    public static int getCacheCountInSD() {
+        try {
+            File dir = new File(BaseApp.me.getCacheDir(), BaseApp.IMAGE_FOLDER_NAME);
+            if (dir.exists()) {
+                File[] files = dir.listFiles();
+                return files.length;
+            }
+        } catch (Exception e) {
+            Common.e(e);
+        }
+        return 0;
+    }
+
     public static void cleanCacheInSD() {
         try {
             File dir = new File(BaseApp.me.getCacheDir(), BaseApp.IMAGE_FOLDER_NAME);

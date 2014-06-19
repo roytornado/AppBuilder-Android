@@ -114,18 +114,22 @@ public class GPSTracker implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
+        Common.d("onLocationChanged"+ location);
     }
 
     @Override
     public void onProviderDisabled(String provider) {
+        Common.d("onProviderDisabled"+ provider);
     }
 
     @Override
     public void onProviderEnabled(String provider) {
+        Common.d("onProviderEnabled"+ provider);
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
+        Common.d("onStatusChanged" + provider);
     }
 
 }

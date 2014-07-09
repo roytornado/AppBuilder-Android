@@ -32,8 +32,12 @@ public class ListRowAdapter extends BaseAdapter {
     final OnItemClickListener listClick = new OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            ListRow row = (ListRow) getItem(position);
-            event.onListRowClick(view, position, row);
+            try {
+                ListRow row = (ListRow) getItem(position);
+                event.onListRowClick(view, position, row);
+            }catch (Exception e){
+
+            }
         }
     };
 

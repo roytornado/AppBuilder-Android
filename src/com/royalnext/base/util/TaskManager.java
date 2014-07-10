@@ -49,7 +49,7 @@ public class TaskManager {
         }
     }
 
-    public void cleanTaskByViewOwner(String owner) {
+    public synchronized void cleanTaskByViewOwner(String owner) {
         ThreadTask target = null;
         for (ThreadTask task : stack) {
             if (task.viewOwner.equals(owner)) {

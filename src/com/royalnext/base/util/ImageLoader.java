@@ -78,6 +78,19 @@ public class ImageLoader {
         }
     }
 
+    public void loadImgOtherThread(final String url, final Handler handler) {
+        new Thread(){
+            @Override
+            public void run() {
+                Drawable drawable = fetchDrawable(url, ImgSizeType.ORG);
+                if (drawable != null) {
+                    Message message = handler.obtainMessage(1, drawable);
+                    handler.sendMessage(message);
+                }
+            }
+        }.start();
+    }
+
     public void loadImgOtherThread(final String url, final ImageView imageView) {
         this.loadImgOtherThread(url, imageView, ImgSizeType.THUMB);
     }

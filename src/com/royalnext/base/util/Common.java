@@ -2,6 +2,7 @@ package com.royalnext.base.util;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 
 import com.royalnext.base.app.BaseApp;
 
@@ -41,6 +42,10 @@ public class Common {
 
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
+
+    public final static boolean isValidUrl(CharSequence target) {
+        return !TextUtils.isEmpty(target) && Patterns.WEB_URL.matcher(target).matches();
     }
 
     public static String urlToFilename(String url) {

@@ -174,8 +174,10 @@ public class HttpFileUploadHelper {
             }
 
 
-            File file = new File(fileUri.getPath());
-            entity.addPart(file_para, new FileBody(file));
+            if(fileUri != null) {
+                File file = new File(fileUri.getPath());
+                entity.addPart(file_para, new FileBody(file));
+            }
 
             httppost.setEntity(entity);
             HttpResponse response = httpclient.execute(httppost);

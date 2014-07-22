@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
@@ -17,7 +18,7 @@ import com.royalnext.base.util.network.ServerTaskManager;
 import com.royalnext.base.util.network.multitask.MultiTaskManager;
 import com.royalnext.base.widget.AppToast;
 
-public abstract class BaseFragmentActivity extends FragmentActivity {
+public abstract class BaseFragmentActivity extends ActionBarActivity {
     private AppToast toast;
     private ProgressDialog loading;
     protected ServerTaskManager stm;
@@ -27,9 +28,17 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         return this;
     }
 
-    protected void onCreate(Bundle savedInstanceState, int layoutRes) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        toast = new AppToast(BaseApp.me);
+        stm = new ServerTaskManager();
+        Common.i(getClass().getSimpleName() + ": onCreate");
+    }
+
+    public void onCreate(Bundle savedInstanceState, int layoutRes) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         if (layoutRes > -1) {
             setContentView(layoutRes);
         }

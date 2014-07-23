@@ -12,11 +12,12 @@ import com.royalnext.base.app.BaseApp;
 import com.royalnext.base.util.Ran;
 
 public abstract class InfoBase {
+    public static int margin = 0;
     protected View self;
     protected TextView info_label;
 
     public InfoBase(LinearLayout main, int resId) {
-        this(main, resId, BaseApp.dpToPx(8));
+        this(main, resId, BaseApp.dpToPx(margin));
     }
 
     public InfoBase(LinearLayout main, int resId, int vMargin) {

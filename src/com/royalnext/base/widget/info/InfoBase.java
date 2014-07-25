@@ -41,6 +41,10 @@ public abstract class InfoBase {
         return self;
     }
 
+    public TextView getLabel() {
+        return info_label;
+    }
+
     public void setVisibility(int flag) {
         self.setVisibility(flag);
     }

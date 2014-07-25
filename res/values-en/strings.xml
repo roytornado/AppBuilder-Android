@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">lib-midland-base</string>
     <string name="done">Done</string>
     <string name="cancel">Cancel</string>
     <string name="close">Close</string>

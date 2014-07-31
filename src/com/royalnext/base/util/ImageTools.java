@@ -67,10 +67,13 @@ public class ImageTools {
                     switch (orientation1) {
                         case ExifInterface.ORIENTATION_ROTATE_270:
                             degrees = 270;
+                            break;
                         case ExifInterface.ORIENTATION_ROTATE_180:
                             degrees = 180;
+                            break;
                         case ExifInterface.ORIENTATION_ROTATE_90:
                             degrees = 90;
+                            break;
                     }
                 }
             }

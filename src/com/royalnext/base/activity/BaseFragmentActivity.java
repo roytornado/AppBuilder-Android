@@ -6,7 +6,6 @@ import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -29,16 +28,16 @@ public abstract class BaseFragmentActivity extends ActionBarActivity {
     }
 
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        super.onCreate(savedInstanceState);
         toast = new AppToast(BaseApp.me);
         stm = new ServerTaskManager();
         Common.i(getClass().getSimpleName() + ": onCreate");
     }
 
     public void onCreate(Bundle savedInstanceState, int layoutRes) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        super.onCreate(savedInstanceState);
         if (layoutRes > -1) {
             setContentView(layoutRes);
         }

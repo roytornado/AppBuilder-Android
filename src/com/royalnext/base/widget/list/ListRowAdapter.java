@@ -29,6 +29,13 @@ public class ListRowAdapter extends BaseAdapter {
         }
     }
 
+    public void setListEvent(ListView list, ListEvent _event){
+        event = _event;
+        if (list != null && _event != null) {
+            list.setOnItemClickListener(listClick);
+        }
+    }
+
     final OnItemClickListener listClick = new OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

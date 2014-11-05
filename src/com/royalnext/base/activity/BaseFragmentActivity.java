@@ -7,7 +7,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
 import com.royalnext.base.R;
@@ -28,7 +27,6 @@ public abstract class BaseFragmentActivity extends ActionBarActivity {
     }
 
     public void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         toast = new AppToast(BaseApp.me);
         stm = new ServerTaskManager();
@@ -36,7 +34,6 @@ public abstract class BaseFragmentActivity extends ActionBarActivity {
     }
 
     public void onCreate(Bundle savedInstanceState, int layoutRes) {
-        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         if (layoutRes > -1) {
             setContentView(layoutRes);

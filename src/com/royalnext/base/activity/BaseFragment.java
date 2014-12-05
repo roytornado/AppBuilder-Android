@@ -110,6 +110,13 @@ public class BaseFragment extends Fragment {
         dialog.show();
     }
 
+    protected void showMsg(String text) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(me().getActivity());
+        dialog.setCancelable(true);
+        dialog.setMessage(text);
+        dialog.show();
+    }
+
     protected void hideKB() {
         if (me().getActivity().getCurrentFocus() != null) {
             InputMethodManager inputManager = (InputMethodManager) me().getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

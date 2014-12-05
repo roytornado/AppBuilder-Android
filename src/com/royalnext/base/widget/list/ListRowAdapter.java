@@ -13,8 +13,10 @@ public class ListRowAdapter extends BaseAdapter {
     private ArrayList<ListRow> rows;
     private ArrayList<String> typeList;
     private ListEvent event;
+    private ListView list;
 
-    public ListRowAdapter(ListView list, ArrayList<ListRow> _rows, ListEvent _event, ArrayList<String> typeList) {
+    public ListRowAdapter(ListView _list, ArrayList<ListRow> _rows, ListEvent _event, ArrayList<String> typeList) {
+        list = _list;
         rows = _rows;
         event = _event;
         this.typeList = typeList;
@@ -29,7 +31,7 @@ public class ListRowAdapter extends BaseAdapter {
         }
     }
 
-    public void setListEvent(ListView list, ListEvent _event){
+    public void setListEvent(ListView list, ListEvent _event) {
         event = _event;
         if (list != null && _event != null) {
             list.setOnItemClickListener(listClick);
@@ -42,7 +44,7 @@ public class ListRowAdapter extends BaseAdapter {
             try {
                 ListRow row = (ListRow) getItem(position);
                 event.onListRowClick(view, position, row);
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
         }
@@ -77,6 +79,10 @@ public class ListRowAdapter extends BaseAdapter {
 
     public View getView(final int position, View convertView, ViewGroup parent) {
         View view = rows.get(position).getView(convertView);
+        if (rows.get(position) instanceof ListRow.ListRowContext) {
+            ListRow.ListRowContext listRowContext = (ListRow.ListRowContext) rows.get(position);
+            view = listRowContext.getView(parent.getContext(), convertView);
+        }
         return view;
     }
 }
